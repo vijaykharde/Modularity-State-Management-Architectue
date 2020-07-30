@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\common",
+    "\\src\\features",
+    "\\src\\features\\examples",
+    "\\src\\features\\home",
+    "\\src\\features\\home\\redux"
+  ],
+  "SelectedNode": "\\src\\common\\routeConfig.js",
+  "PreviewInSolutionExplorer": false
+}
