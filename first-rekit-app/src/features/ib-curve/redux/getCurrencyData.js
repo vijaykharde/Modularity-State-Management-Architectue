@@ -5,7 +5,7 @@ import {
     IB_CURVE_GET_CURRENCY_DATA_FAILURE,
     IB_CURVE_GET_CURRENCY_DATA_DISMISS_ERROR
 } from './constants';
-import { stat } from 'fs-extra';
+
 export function getCurrencyData(args = {}) {
     return (dispatch) => {
         dispatch({
