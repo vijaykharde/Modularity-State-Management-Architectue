@@ -1,4 +1,4 @@
-import  IbCurveMainPage  from "./IbCurveMainPage";
+import { IbCurveMainPage } from "./IbCurveMainPage";
 
 export default {
     path: 'ibcurve',
