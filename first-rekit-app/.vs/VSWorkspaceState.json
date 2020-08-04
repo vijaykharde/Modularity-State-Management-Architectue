@@ -3,11 +3,8 @@
     "",
     "\\src",
     "\\src\\common",
-    "\\src\\features",
-    "\\src\\features\\common\\redux",
-    "\\src\\features\\ib-curve",
-    "\\src\\features\\ib-curve\\redux"
+    "\\src\\features"
   ],
-  "SelectedNode": "\\src\\features\\ib-curve\\IbCurveMainPage.js",
+  "SelectedNode": "\\src\\common\\routeConfig.js",
   "PreviewInSolutionExplorer": false
 }
