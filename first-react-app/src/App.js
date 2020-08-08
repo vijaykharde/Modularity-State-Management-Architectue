@@ -7,7 +7,8 @@ class App extends Component {
         return (
             <div className="App" >
                 Counter is { this.props.ctr} &nbsp;
-                <button onClick={this.props.onIncrementCounter} >Add 1</button>
+                <button onClick={this.props.onIncrementCounter} >Add 1</button>&nbsp;
+                <button onClick={this.props.resetCounter}>Reset</button>
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <p>Edit <code>src/App.js</code> and save to reload.</p>
@@ -25,7 +26,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onIncrementCounter: () => dispatch({ type:'INC_COUNTER'})
+        onIncrementCounter: () => dispatch({ type: 'INC_COUNTER' }),
+        resetCounter: () => dispatch({ type: 'RESET_COUNTER' })
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
