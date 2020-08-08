@@ -6,7 +6,8 @@ class App extends Component {
     render() {
         return (
             <div className="App" >
-                Counter is { this.props.ctr}
+                Counter is { this.props.ctr} &nbsp;
+                <button onClick={this.props.onIncrementCounter} >Add 1</button>
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <p>Edit <code>src/App.js</code> and save to reload.</p>
@@ -21,4 +22,10 @@ const mapStateToProps = state => {
         ctr: state.counter
     };
 }
-export default connect(mapStateToProps)(App);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onIncrementCounter: () => dispatch({ type:'INC_COUNTER'})
+    };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
