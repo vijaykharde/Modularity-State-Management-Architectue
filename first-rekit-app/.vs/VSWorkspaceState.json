@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\common",
-    "\\src\\features"
+    "\\src\\features",
+    "\\src\\features\\common",
+    "\\src\\features\\ib-curve"
   ],
-  "SelectedNode": "\\src\\common\\routeConfig.js",
+  "SelectedNode": "\\src\\common\\store.js",
   "PreviewInSolutionExplorer": false
 }
