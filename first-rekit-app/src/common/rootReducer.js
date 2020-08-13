@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 // import { routerReducer } from 'react-router-redux';
 import { connectRouter } from 'connected-react-router'
 import history from './history';
-import homeReducer from '../features/home/redux/reducer';
-import commonReducer from '../features/common/redux/reducer';
-import examplesReducer from '../features/examples/redux/reducer';
+//import homeReducer from '../features/home/redux/reducer';
+//import commonReducer from '../features/common/redux/reducer';
+//import examplesReducer from '../features/examples/redux/reducer';
 import ibCurveReducer from '../features/ib-curve/redux/reducer';
 // NOTE 1: DO NOT CHANGE the 'reducerMap' name and the declaration pattern.
 // This is used for Rekit cmds to register new features, remove features, etc.
@@ -13,9 +13,9 @@ import ibCurveReducer from '../features/ib-curve/redux/reducer';
 
 const reducerMap = {
     router: connectRouter(history),
-    home: homeReducer,
-    common: commonReducer,
-    examples: examplesReducer,
+    //home: homeReducer,
+    //common: commonReducer,
+    //examples: examplesReducer,
     ibCurve: ibCurveReducer
 };
 
