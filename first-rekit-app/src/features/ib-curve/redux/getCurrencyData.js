@@ -1,5 +1,5 @@
 import initialState from './initialState';
-import axios from 'axios';
+//import axios from 'axios';
 import {
     IB_CURVE_GET_CURRENCY_DATA_BEGIN,
     IB_CURVE_GET_CURRENCY_DATA_SUCCESS,
