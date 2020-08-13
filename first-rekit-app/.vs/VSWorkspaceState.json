@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\common",
     "\\src\\features",
-    "\\src\\features\\examples\\redux",
+    "\\src\\features\\ib-curve",
     "\\src\\features\\ib-curve\\redux"
   ],
-  "SelectedNode": "\\src\\common",
+  "SelectedNode": "\\src\\features\\ib-curve\\AppBarDrawer.js",
   "PreviewInSolutionExplorer": false
 }
