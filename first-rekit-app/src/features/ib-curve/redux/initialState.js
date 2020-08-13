@@ -1,4 +1,4 @@
-const intialState = {
+const initialState={
     getCurrencyDataPending: false,
     getCurrencyDataError: null,
     data: {},

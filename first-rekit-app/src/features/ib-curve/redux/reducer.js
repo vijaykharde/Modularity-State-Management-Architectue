@@ -1,17 +1,8 @@
-import initialState from './initialState';
 import { reducer as getCurrencyDataReducer } from './getCurrencyData';
 import { reducer as updateDataReducer } from './updateData';
 import { reducer as updateCurrencyListReducer } from './updateCurrencyList';
 import { reducer as updateRealTimeDataReducer } from './updateRealTimeData';
-
-const reducers = [
-    getCurrencyDataReducer,
-    updateDataReducer,
-    updateCurrencyListReducer,
-    updateRealTimeDataReducer
-];
-
-export default function reducer(state = {
+const initialState = {
     getCurrencyDataPending: false,
     getCurrencyDataError: null,
     data: {},
@@ -40,7 +31,15 @@ export default function reducer(state = {
             "CurveName": "ESE_FTP_GWM_FIXED"
         }
     ]
-}, action) {
+};
+const reducers = [
+    getCurrencyDataReducer,
+    updateDataReducer,
+    updateCurrencyListReducer,
+    updateRealTimeDataReducer
+];
+
+export default function (state = initialState, action) {
     let newState;
     switch (action.type) {
         default:

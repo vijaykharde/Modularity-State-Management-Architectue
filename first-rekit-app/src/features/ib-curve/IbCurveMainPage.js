@@ -33,7 +33,6 @@ export class IbCurveMainPage extends Component {
     }
 
     render() {
-        console.log(this.props);
         //return(<div>Hello, World!!!</div>);
         const { classes } = this.props;
         const currList = Object.keys(this.props.ibCurve.currList).filter(item => {
@@ -57,7 +56,7 @@ export class IbCurveMainPage extends Component {
 function mapStateToProps(state) {
     console.log(state);
     return {
-        ibCurve: state.ibCurve
+        ibCurve: state.ibcurve
     };
 }
 

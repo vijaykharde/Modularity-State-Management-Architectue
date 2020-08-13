@@ -58,4 +58,4 @@ function Root() {
   );
 }
 
-export default hot(module)(Root);
+export default Root;

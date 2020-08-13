@@ -1,3 +1,4 @@
+import initialState from './initialState';
 import { IB_CURVE_UPDATE_REAL_TIME_DATA } from './constants';
 export function updateRealTimeData(curr, data) {
     return {
@@ -7,7 +8,7 @@ export function updateRealTimeData(curr, data) {
     };
 }
 
-export function reducer(state, action) {
+export function reducer(state = initialState, action) {
 
     var obj = state.data;
     if (action.data) {
@@ -24,6 +25,6 @@ export function reducer(state, action) {
                 data: obj
             };
         default:
-            return state;
+            return { ...state };
     }
 }

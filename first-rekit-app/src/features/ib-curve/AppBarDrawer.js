@@ -106,7 +106,7 @@ export class AppBarDrawer extends Component {
 
 function mapStateToProps(state) {
     return {
-        ibCurve: state.ibCurve
+        ibCurve: state.ibcurve
     };
 }
 

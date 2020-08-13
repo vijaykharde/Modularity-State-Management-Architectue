@@ -1,3 +1,4 @@
+import initialState from './initialState';
 import axios from 'axios';
 import {
     IB_CURVE_GET_CURRENCY_DATA_BEGIN,
@@ -5,13 +6,15 @@ import {
     IB_CURVE_GET_CURRENCY_DATA_FAILURE,
     IB_CURVE_GET_CURRENCY_DATA_DISMISS_ERROR
 } from './constants';
-import { stat } from 'fs-extra';
 export function getCurrencyData(args = {}) {
-    return (dispatch) => {
+    return {
+        type: IB_CURVE_GET_CURRENCY_DATA_BEGIN
+    };
+    /*return (dispatch) => {
         dispatch({
             type: IB_CURVE_GET_CURRENCY_DATA_BEGIN
         });
-
+        
         const promise = new Promise((resolve, reject) => {
             const furl = '/Home/FatchCurveData?currency=' + args.currency;
             const doRequest = axios.get(furl);
@@ -34,7 +37,7 @@ export function getCurrencyData(args = {}) {
             );
         });
         return promise;
-    };
+    };*/
 }
 
 export function dismissGetCurrencyDataError() {
@@ -43,7 +46,7 @@ export function dismissGetCurrencyDataError() {
     };
 }
 
-export function reducer(state, action) {
+export function reducer(state = initialState, action) {
     switch (action.type) {
         case IB_CURVE_GET_CURRENCY_DATA_BEGIN:
             return {
@@ -79,6 +82,6 @@ export function reducer(state, action) {
             };
 
         default:
-            return state;
+            return { ...state };
     }
 }
