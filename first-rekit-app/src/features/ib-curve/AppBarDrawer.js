@@ -35,10 +35,10 @@ const styles = theme => ({
 });
 
 export class AppBarDrawer extends Component {
-    static propTypes = {
+    /*static propTypes = {
         ibCurve: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired
-    };
+    };*/
 
     constructor(props) {
         super(props);
@@ -89,7 +89,7 @@ export class AppBarDrawer extends Component {
                                     return (
                                         <ListItem key={item}>
                                             <FormControlLabel control={
-                                                <Checkbox checked={this.state.currList[item]} onchange={this.handleChange} name={item} color="primary"></Checkbox>
+                                                <Checkbox checked={this.state.currList[item]} onChange={this.handleChange} name={item} color="primary"></Checkbox>
                                             } label={item}>
                                             </FormControlLabel>
                                         </ListItem>
@@ -103,3 +103,17 @@ export class AppBarDrawer extends Component {
             );
     };
 }
+
+function mapStateToProps(state) {
+    return {
+        ibCurve: state.ibCurve
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators({ ...actions }, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(AppBarDrawer));

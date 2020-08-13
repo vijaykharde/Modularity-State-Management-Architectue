@@ -20,11 +20,6 @@ const styles = theme => ({
     }
 });
 export class IbCurveMainPage extends Component {
-    static propTypes = {
-        ibCurve: PropTypes.object.isRequired,
-        actions: PropTypes.object.isRequired
-    };
-
     hubConnection = null;
     componentDidMount() {
         this.hubConnection = new HubConnectionBuilder().withUrl('/RealTimeData', HttpTransportType.WebSockets | HttpTransportType.LongPolling).build();
@@ -34,11 +29,11 @@ export class IbCurveMainPage extends Component {
             this.props.actions.updateRealTimeData('CHF', JSON.parse(receivedMessage));
         });
 
-        this.hubConnection.start().then(() => { console.log("COnnection started"); }).catch((err) => { console.log(err); });
+        //this.hubConnection.start().then(() => { console.log("COnnection started"); }).catch((err) => { console.log(err); });
     }
 
     render() {
-        //console.log(this.props);
+        console.log(this.props);
         //return(<div>Hello, World!!!</div>);
         const { classes } = this.props;
         const currList = Object.keys(this.props.ibCurve.currList).filter(item => {
@@ -46,7 +41,7 @@ export class IbCurveMainPage extends Component {
         });
         return (
             <div className={classes.root}>
-                <AppBarDrawer />
+                <AppBarDrawer {...this.props} />
                 <div className={classes.GridGrafCSS}>
                     {
                         currList.map(cur => {
@@ -60,8 +55,9 @@ export class IbCurveMainPage extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log(state);
     return {
-        ibCurve: state.ibCurve.isRequired
+        ibCurve: state.ibCurve
     };
 }
 
@@ -70,9 +66,5 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators({ ...actions }, dispatch)
     };
 }
-
-IbCurveMainPage.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(IbCurveMainPage));

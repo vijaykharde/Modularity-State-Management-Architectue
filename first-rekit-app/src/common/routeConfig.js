@@ -1,4 +1,4 @@
-import { App } from '../features/home';
+import { App } from '../features/ib-curve';
 import { PageNotFound } from '../features/common';
 import homeRoute from '../features/home/route';
 import commonRoute from '../features/common/route';
