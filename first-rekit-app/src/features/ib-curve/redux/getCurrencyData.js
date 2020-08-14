@@ -1,4 +1,4 @@
-import initialState from './initialState';
+//import initialState from './initialState';
 //import axios from 'axios';
 import {
     IB_CURVE_GET_CURRENCY_DATA_BEGIN,
@@ -46,7 +46,7 @@ export function dismissGetCurrencyDataError() {
     };
 }
 
-export function reducer(state = initialState, action) {
+export function reducer(state, action) {
     switch (action.type) {
         case IB_CURVE_GET_CURRENCY_DATA_BEGIN:
             return {

@@ -1,4 +1,4 @@
-import initialState from './initialState';
+//import initialState from './initialState';
 import { IB_CURVE_UPDATE_CURRENCY_LIST } from './constants';
 
 export function updateCurrencyList(currList) {
@@ -8,7 +8,7 @@ export function updateCurrencyList(currList) {
     };
 }
 
-export function reducer(state = initialState, action) {
+export function reducer(state, action) {
     switch (action.type) {
         case IB_CURVE_UPDATE_CURRENCY_LIST:
             return {

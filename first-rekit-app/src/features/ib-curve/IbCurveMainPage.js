@@ -43,7 +43,7 @@ export class IbCurveMainPage extends Component {
                 <div className={classes.GridGrafCSS}>
                     {
                         currList.map(cur => {
-                            return <GridGraphView key={cur} currency={cur} />;
+                            return <GridGraphView key={cur} currency={cur}  {...this.props}/>;
                         })
                     }
                 </div>
