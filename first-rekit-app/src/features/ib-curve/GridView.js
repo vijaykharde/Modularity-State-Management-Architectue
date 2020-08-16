@@ -9,6 +9,9 @@ import { AgGridReact } from 'ag-charts-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
+
+import PubSub from 'pubsub-js';
+
 const styles = theme => ({
     content: {
         flexGrow: 1,
@@ -19,8 +22,84 @@ const styles = theme => ({
 });
 
 export class GridView extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            columnDefs: [
+                { headerName: 'Currency', field: 'currency', resizable: true, width: 150 },
+                { headerName: 'Tenor', field: 'tenor', resizable: true, sortable: 150 },
+                {
+                    headerName: 'Bid', field: 'bid', cellRenderer: 'agAnimateShowChangeCellRenderer',
+                    resizable: true, cellClass: 'align-right', valueFormatter: currencyFormatter
+                },
+                {
+                    headerName: 'Ask', field: 'ask', cellRenderer: 'agAnimateShowChangeCellRenderer',
+                    resizable: true, cellClass: 'align-right', valueFormatter: currencyFormatter
+                }
+            ]
+        };
+    }
     render() {
-        return (<div>Grid View</div>);
+        const { classes } = this.props;
+        var gridOptions = {
+            getRowNodeId: data => {
+                return data.id;
+            },
+            deltaRowDataMode: true
+        };
+
+        const data = this.props.currency in this.props.ibCurve.data ? this.props.ibCurve.data[this.props.currency] : [];
+        var gridHeight = window.innerHeight;
+
+        return (
+            <div className="ag-theme-alpine" style={{ height: 280, width: '100%' }}>
+                <AgGridReact
+                    enableCellChangeFlash={false}
+                    columnDefs={this.state.columnDefs}
+                    rowData={data}
+                    gridOptions={gridOptions}
+                    ref={this.mGrid}
+                    onGridReady={this.onGridReady}>
+                </AgGridReact>
+            </div>
+        );
+    }
+
+    evtSource = null;
+    gridApi = null;
+    columnApi = null;
+    mGrid = React.createRef();
+
+    updateGrid = (msg, data) => {
+        if (data.currency === this.props.currency) {
+            if (this.mGrid.current) {
+                const api = this.mGrid.current.api;
+                if (data.bid < 0.5) {
+                    let nd = api.getRowNode(data.id);
+                    if (nd) {
+                        api.flashCells({ rowNodes: [nd] });
+                        setTimeout(() => {
+                            api.updateRowData({
+                                remove: [nd]
+                            });
+                        }, 1000);
+                    }
+                }
+            }
+        }
+    };
+
+    onGridReady = params => {
+        this.columnApi = params.columnApi;
+    };
+
+    token = null;
+    componentDidMount() {
+        this.token = PubSub.subscribe('REAL_TIME_DATA', this.updateGrid);
+    }
+
+    componentWillUnmount() {
+        PubSub.unsubscribe(this.token);
     }
 }
 function mapStateToProps(state) {
@@ -34,6 +113,15 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators({ ...actions }, dispatch)
     };
 }
+
+function currencyFormatter(params) {
+    return formatNumber(params.value);
+}
+
+function formatNumber(number) {
+    return (Math.round(number * 100) / 100).toFixed(2).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,1');
+}
+
 GridView.propTypes = {
     classes: PropTypes.object.isRequired
 }
