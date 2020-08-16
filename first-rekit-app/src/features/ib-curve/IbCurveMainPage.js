@@ -7,6 +7,7 @@ import { GridGraphView } from './GridGraphView';
 import PubSub from 'pubsub-js';
 import { HubConnectionBuilder, HttpTransportType } from '@aspnet/signalr';
 import { withStyles } from '@material-ui/core';
+import { PropTypes } from 'prop-types';
 const styles = theme => ({
     root: {
         display: 'flex'
@@ -33,7 +34,9 @@ export class IbCurveMainPage extends Component {
 
     render() {
         //return(<div>Hello, World!!!</div>);
+        //console.log({ ...this.props });
         const { classes } = this.props;
+        //console.log({ ...this.props });
         const currList = Object.keys(this.props.ibCurve.currList).filter(item => {
             return this.props.ibCurve.currList[item];
         });
@@ -63,6 +66,10 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators({ ...actions }, dispatch)
     };
+}
+
+IbCurveMainPage.propTypes = {
+    classes: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(IbCurveMainPage));

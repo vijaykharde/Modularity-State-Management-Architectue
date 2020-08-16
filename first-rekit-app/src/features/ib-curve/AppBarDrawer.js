@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-//import { bindActionCreators } from 'redux';
-//import { connect } from 'react-redux';
-//import * as actions from './redux/actions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from './redux/actions';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-//import MenuIcon from '@material-ui/core/Menu';
+import MenuIcon from '@material-ui/core/Menu';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-//import { withStyles } from '@material-ui/styles';
+import { withStyles } from '@material-ui/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import { PropTypes } from 'prop-types';
 
-/*const drawerWidth = 200;
+const drawerWidth = 200;
 const styles = theme => ({
     search: {
         position: 'relative',
@@ -31,7 +32,7 @@ const styles = theme => ({
     drawerPaper: {
         width: drawerWidth
     }
-});*/
+});
 
 export class AppBarDrawer extends Component {
     /*static propTypes = {
@@ -71,11 +72,13 @@ export class AppBarDrawer extends Component {
     };
 
     render() {
+        const { classes } = this.props;
+        console.log(classes);
         return (
-            <div className="ibCurve-app-bar-drawer">
+            <div>
                 <AppBar>
                     <Toolbar>
-                        <IconButton color="inherit" aria-label="open drawer" onClick={this.toggleDrawer(true)} edge="start"></IconButton>
+                        <IconButton color="inherit" aria-label="open drawer" onClick={this.toggleDrawer(true)} edge="start"><MenuIcon/></IconButton>
                         <Typography variant="h6" noWrap>UBS WIP</Typography>
                     </Toolbar>
                 </AppBar>
@@ -101,7 +104,7 @@ export class AppBarDrawer extends Component {
             );
     };
 }
-/*
+
 function mapStateToProps(state) {
     return {
         ibCurve: state.ibcurve
@@ -113,5 +116,7 @@ function mapDispatchToProps(dispatch) {
         actions: bindActionCreators({ ...actions }, dispatch)
     };
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(AppBarDrawer));*/
+AppBarDrawer.propTypes = {
+    classes: PropTypes.object.isRequired
+}
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(AppBarDrawer));
