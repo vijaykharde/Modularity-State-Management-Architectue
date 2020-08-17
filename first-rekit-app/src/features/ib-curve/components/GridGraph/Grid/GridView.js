@@ -47,27 +47,27 @@ export class GridView extends Component {
             },
             deltaRowDataMode: true
         };
-
+        //const data = this.props.ibcurve.data[0];
         const data = this.props.currency in this.props.ibcurve.data ? this.props.ibcurve.data[this.props.currency] : [];
         var gridHeight = window.innerHeight;
-        console.log({ ...this.props });
-        //return (
-        //    <div className="ag-theme-alpine" style={{ height: 280, width: '100%' }}>
-        //        <AgGridReact
-        //            enableCellChangeFlash={false}
-        //            columnDefs={this.state.columnDefs}
-        //            rowData={data}
-        //            gridOptions={gridOptions}
-        //            ref={this.mGrid}
-        //            onGridReady={this.onGridReady}>
-        //        </AgGridReact>
-        //    </div>
-        //);
+        console.log(this.props.ibcurve.data[0]);
         return (
             <div className="ag-theme-alpine" style={{ height: 280, width: '100%' }}>
-               GridView
+                <AgGridReact
+                    enableCellChangeFlash={false}
+                    columnDefs={this.state.columnDefs}
+                    rowData={data}
+                    gridOptions={gridOptions}
+                    ref={this.mGrid}
+                    onGridReady={this.onGridReady}>
+                </AgGridReact>
             </div>
         );
+        //return (
+        //    <div className="ag-theme-alpine" style={{ height: 280, width: '100%' }}>
+        //       GridView
+        //    </div>
+        //);
     }
 
     evtSource = null;
