@@ -1,9 +1,9 @@
 import  React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from './redux/actions';
-import { AppBarDrawer } from './AppBarDrawer';
-import { GridGraphView } from './GridGraphView';
+import * as actions from '../../redux/actions';
+import { AppBarDrawer } from '../menu/AppBarDrawer';
+import { GridGraphView } from '../GridGraph/GridGraphView';
 import PubSub from 'pubsub-js';
 import { HubConnectionBuilder, HttpTransportType } from '@aspnet/signalr';
 import { withStyles } from '@material-ui/core';
@@ -37,8 +37,8 @@ export class IbCurveMainPage extends Component {
         //console.log({ ...this.props });
         const { classes } = this.props;
         //console.log({ ...this.props });
-        const currList = Object.keys(this.props.ibCurve.currList).filter(item => {
-            return this.props.ibCurve.currList[item];
+        const currList = Object.keys(this.props.ibcurve.currList).filter(item => {
+            return this.props.ibcurve.currList[item];
         });
         return (
             <div className={classes.root}>
@@ -56,9 +56,8 @@ export class IbCurveMainPage extends Component {
 }
 
 function mapStateToProps(state) {
-    //console.log(state);
     return {
-        ibCurve: state.ibcurve
+        ibcurve: state.ibcurve
     };
 }
 

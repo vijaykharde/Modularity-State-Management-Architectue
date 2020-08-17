@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from './redux/actions';
+import * as actions from '../../../redux/actions';
 import { cloneDeep } from 'lodash';
 import { AgChartsReact } from "ag-charts-react";
 
@@ -52,7 +52,7 @@ export class GraphView extends Component {
 
     render() {
         console.log(this.props.currency);
-        const data = this.props.currency in this.props.ibCurve.data ? this.props.ibCurve.data[this.props.currency] : [];
+        const data = this.props.currency in this.props.ibcurve.data ? this.props.ibcurve.data[this.props.currency] : [];
         this.graphOptions.data = data;
         return <AgChartsReact options={this.graphOptions} />;
     }
@@ -60,7 +60,7 @@ export class GraphView extends Component {
 
 function mapStateToProps(state) {
     return {
-        ibCurve: state.ibcurve
+        ibcurve: state.ibcurve
     };
 }
 

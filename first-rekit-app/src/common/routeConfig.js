@@ -1,4 +1,4 @@
-import { IbCurveMainPage } from '../features/ib-curve';
+import IbCurveMainPage from '../features/ib-curve/components/main/IbCurveMainPage';
 import _ from 'lodash';
 
 const routes = [{

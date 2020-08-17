@@ -2,11 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\common",
     "\\src\\features",
     "\\src\\features\\ib-curve",
     "\\src\\features\\ib-curve\\redux"
   ],
-  "SelectedNode": "\\src\\Root.js",
+  "SelectedNode": "\\src\\features\\ib-curve\\redux\\reducer.js",
   "PreviewInSolutionExplorer": false
 }

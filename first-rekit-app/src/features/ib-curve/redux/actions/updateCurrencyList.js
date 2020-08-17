@@ -1,5 +1,5 @@
 //import initialState from './initialState';
-import { IB_CURVE_UPDATE_CURRENCY_LIST } from './constants';
+import { IB_CURVE_UPDATE_CURRENCY_LIST } from '../constants';
 
 export function updateCurrencyList(currList) {
     return {

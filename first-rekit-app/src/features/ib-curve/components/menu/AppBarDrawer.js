@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from './redux/actions';
+import * as actions from '../../redux/actions';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -65,7 +65,7 @@ export class AppBarDrawer extends Component {
         let obj = { ...this.state.currList };
         obj[event.target.name] = event.target.checked;
         this.setState({ currList: obj });
-        if (!(event.target.name in this.props.ibCurve.data) && event.target.checked) {
+        if (!(event.target.name in this.props.ibcurve.data) && event.target.checked) {
             this.props.actions.getCurrencyData({ currency: event.target.name });
         }
         this.props.actions.updateCurrencyList(obj);
@@ -73,7 +73,7 @@ export class AppBarDrawer extends Component {
 
     render() {
         const { classes } = this.props;
-        console.log(classes);
+        //console.log(classes);
         return (
             <div>
                 <AppBar>
@@ -107,7 +107,7 @@ export class AppBarDrawer extends Component {
 
 function mapStateToProps(state) {
     return {
-        ibCurve: state.ibcurve
+        ibcurve: state.ibcurve
     };
 }
 

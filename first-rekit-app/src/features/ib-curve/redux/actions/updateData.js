@@ -1,5 +1,5 @@
 //import initialState from './initialState';
-import { IB_CURVE_UPDATE_DATA } from './constants';
+import { IB_CURVE_UPDATE_DATA } from '../constants';
 
 export function updateData(data) {
     return {

@@ -5,7 +5,7 @@ import {
     IB_CURVE_GET_CURRENCY_DATA_SUCCESS,
     IB_CURVE_GET_CURRENCY_DATA_FAILURE,
     IB_CURVE_GET_CURRENCY_DATA_DISMISS_ERROR
-} from './constants';
+} from '../constants';
 export function getCurrencyData(args = {}) {
     return {
         type: IB_CURVE_GET_CURRENCY_DATA_BEGIN

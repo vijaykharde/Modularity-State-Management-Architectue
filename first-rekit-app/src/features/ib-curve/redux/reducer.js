@@ -1,7 +1,7 @@
-import { reducer as getCurrencyDataReducer } from './getCurrencyData';
-import { reducer as updateDataReducer } from './updateData';
-import { reducer as updateCurrencyListReducer } from './updateCurrencyList';
-import { reducer as updateRealTimeDataReducer } from './updateRealTimeData';
+import { reducer as getCurrencyDataReducer } from './actions/getCurrencyData';
+import { reducer as updateDataReducer } from './actions/updateData';
+import { reducer as updateCurrencyListReducer } from './actions/updateCurrencyList';
+import { reducer as updateRealTimeDataReducer } from './actions/updateRealTimeData';
 const initialState = {
     getCurrencyDataPending: false,
     getCurrencyDataError: null,

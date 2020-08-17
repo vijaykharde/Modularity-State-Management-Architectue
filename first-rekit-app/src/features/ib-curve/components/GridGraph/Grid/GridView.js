@@ -1,7 +1,7 @@
 import React,{ Component } from "react";
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as actions from './redux/actions';
+import * as actions from '../../../redux/actions';
 import { withStyles } from '@material-ui/styles';
 import { PropTypes } from 'prop-types';
 import { AgGridReact } from 'ag-charts-react';
@@ -48,19 +48,24 @@ export class GridView extends Component {
             deltaRowDataMode: true
         };
 
-        const data = this.props.currency in this.props.ibCurve.data ? this.props.ibCurve.data[this.props.currency] : [];
+        const data = this.props.currency in this.props.ibcurve.data ? this.props.ibcurve.data[this.props.currency] : [];
         var gridHeight = window.innerHeight;
-
+        console.log({ ...this.props });
+        //return (
+        //    <div className="ag-theme-alpine" style={{ height: 280, width: '100%' }}>
+        //        <AgGridReact
+        //            enableCellChangeFlash={false}
+        //            columnDefs={this.state.columnDefs}
+        //            rowData={data}
+        //            gridOptions={gridOptions}
+        //            ref={this.mGrid}
+        //            onGridReady={this.onGridReady}>
+        //        </AgGridReact>
+        //    </div>
+        //);
         return (
             <div className="ag-theme-alpine" style={{ height: 280, width: '100%' }}>
-                <AgGridReact
-                    enableCellChangeFlash={false}
-                    columnDefs={this.state.columnDefs}
-                    rowData={data}
-                    gridOptions={gridOptions}
-                    ref={this.mGrid}
-                    onGridReady={this.onGridReady}>
-                </AgGridReact>
+               GridView
             </div>
         );
     }
@@ -104,7 +109,7 @@ export class GridView extends Component {
 }
 function mapStateToProps(state) {
     return {
-        ibCurve: state.ibcurve
+        ibcurve: state.ibcurve
     };
 }
 

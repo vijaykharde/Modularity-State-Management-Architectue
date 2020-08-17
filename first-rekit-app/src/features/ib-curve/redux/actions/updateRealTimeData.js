@@ -1,5 +1,5 @@
 //import initialState from './initialState';
-import { IB_CURVE_UPDATE_REAL_TIME_DATA } from './constants';
+import { IB_CURVE_UPDATE_REAL_TIME_DATA } from '../constants';
 export function updateRealTimeData(curr, data) {
     return {
         type: IB_CURVE_UPDATE_REAL_TIME_DATA,

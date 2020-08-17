@@ -1,4 +1,4 @@
-export { getCurrencyData, dismissGetCurrencyDataError } from './getCurrencyData';
-export { updateData } from './updateData';
-export { updateCurrencyList } from './updateCurrencyList';
-export { updateRealTimeData } from './updateRealTimeData';
+export { getCurrencyData, dismissGetCurrencyDataError } from './actions/getCurrencyData';
+export { updateData } from './actions/updateData';
+export { updateCurrencyList } from './actions/updateCurrencyList';
+export { updateRealTimeData } from './actions/updateRealTimeData';
