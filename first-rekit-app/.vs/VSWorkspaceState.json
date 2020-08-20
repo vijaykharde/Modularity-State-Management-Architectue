@@ -1,11 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
+    "\\config",
+    "\\scripts",
     "\\src\\features",
     "\\src\\features\\ib-curve",
-    "\\src\\features\\ib-curve\\redux"
+    "\\src\\features\\ib-curve\\components",
+    "\\src\\features\\ib-curve\\components\\GridGraph",
+    "\\src\\features\\ib-curve\\components\\GridGraph\\Grid",
+    "\\src\\features\\ib-curve\\redux",
+    "\\src\\features\\ib-curve\\redux\\actions"
   ],
-  "SelectedNode": "\\src\\features\\ib-curve\\redux\\reducer.js",
+  "SelectedNode": "\\scripts\\build.js",
   "PreviewInSolutionExplorer": false
 }
